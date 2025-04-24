@@ -1,5 +1,5 @@
 const server = require("express")();
-const port = 23456;
+const port = 3000;
 
 process.env.BASEDIR = process.cwd();
 
