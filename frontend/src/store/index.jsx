@@ -6,11 +6,18 @@ export const useStore = create(set => ({
   metrics: [],
   selectedGroup: null,
   selectedNode: null,
-  nodes: [],
-  setSelectedGroup: groupId => set({ selectedGroup: groupId }),
-  setSelectedNode: node => set({ selectedNode: node }),
+
+  setSelectedGroup: groupId =>
+    set({ selectedGroup: groupId, selectedNode: null }),
+
+  setSelectedNode: node =>
+    set({ selectedNode: node /* , selectedGroup: null  ✂ */ }),
+
   fetchAllData: async () => {
-    const [groups, metrics] = await Promise.all([fetchGroups(), fetchMetrics()]);
+    const [groups, metrics] = await Promise.all([
+      fetchGroups(),
+      fetchMetrics()
+    ]);
     set({ groups, metrics });
-  },
+  }
 }));

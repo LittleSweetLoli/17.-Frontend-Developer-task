@@ -10,7 +10,14 @@ import {
   Legend
 } from 'chart.js';
 
-ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Tooltip, Legend);
+ChartJS.register(
+  LineElement,
+  PointElement,
+  CategoryScale,
+  LinearScale,
+  Tooltip,
+  Legend
+);
 
 export default function MetricsChart({ data }) {
   const chartData = {
